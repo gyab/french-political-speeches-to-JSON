@@ -7,7 +7,7 @@ setup(
     version='0.1',
     license='MIT',
     description='french-political-speeches-to-jsont',
-    author='gyab',  # Type in your name
+    author='Antoine',  # Type in your name
     author_email='',  # Type in your E-Mail
     url='https://github.com/gyab/french-political-speeches-to-json',
     install_requires=[str(requirement) for requirement in
@@ -23,6 +23,6 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     entry_points={
-        'console_scripts': ['french-political-speeches-to-json=french-political-speeches-to-json.__main__:main'],
+        'console_scripts': ['french-political-speeches-to-json=crawling.crawling.spiders.speeches'],
     }
 )

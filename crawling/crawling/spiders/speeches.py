@@ -1,5 +1,6 @@
 import scrapy
 
+
 class ViePubliqueDiscours(scrapy.Spider):
     name = 'speeches'
 
