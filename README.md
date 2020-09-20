@@ -41,5 +41,5 @@ The spider used by [Scrapy](https://github.com/scrapy/scrapy) to crawl and parse
 ## Task list
 
 - [ ] Send a request by mail when a speech is not fully accessible (text missing for example)
-- [ ] Generate a RSS feed for each new feed
+- [ ] Generate a RSS feed for each new speech
 - [ ] Not generate each new JSON file from scratch, append each time instead
