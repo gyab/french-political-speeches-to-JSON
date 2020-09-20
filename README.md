@@ -1,4 +1,4 @@
-# french-political-speeches-to-json
+# french-government-speeches-to-json
 
 Crawl and parse all the speeches of the French government uploaded on https://www.vie-publique.fr/discours.
 
