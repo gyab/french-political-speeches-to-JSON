@@ -1,6 +1,4 @@
 import scrapy
-from crawling.items import SpeechItem
-
 
 class ViePubliqueDiscours(scrapy.Spider):
     name = 'speeches'
@@ -15,14 +13,11 @@ class ViePubliqueDiscours(scrapy.Spider):
         # yield from response.follow_all(pagination_links, self.parse)
 
     def parse_speech(self, response):
-        discours = SpeechItem()
-        discours['title'] = response.css('h1::text').get().strip()
-        discours['date'] = response.css('time::attr(datetime)').get()
-        discours['text'] = response \
-            .css('.field--name-field-texte-integral p') \
-            .get()
-        discours['tags'] = response.css("div.tagsBox a::text").getall()
-        discours['topics'] = [x.strip() for x in response.css("div.thematicBox a::text").getall()]
-        discours['speakers'] = response \
-            .css("ul.line-intervenant a::text").getall()
-        return dict(discours)
+        yield {
+            'title': response.css('h1::text').get().strip(),
+            'date': response.css('time::attr(datetime)').get(),
+            'text': response.css('.field--name-field-texte-integral p').get(),
+            'tags': response.css("div.tagsBox a::text").getall(),
+            'topics': [x.strip() for x in response.css("div.thematicBox a::text").getall()],
+            'speakers': response.css("ul.line-intervenant a::text").getall()
+        }
