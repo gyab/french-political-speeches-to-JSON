@@ -3,7 +3,7 @@
 Crawl and parse all the statements of the French government uploaded on https://www.vie-publique.fr/discours.
 
 - To scrape the website, [Scrapy](https://github.com/scrapy/scrapy) is used.
-- The URL of latest generated JSON file is https://raw.githubusercontent.com/gyab/french-government-speeches-to-json/master/speeches.json.
+- The URL of latest generated JSON file is https://raw.githubusercontent.com/gyab/french-government-statements-to-csv/master/speeches.json.
 
 Structured data of a scraped speech:
   ```
@@ -28,9 +28,9 @@ Structured data of a scraped speech:
   ```
 
 
-## Install french-government-speeches-to-json
+## Install french-government-statements-to-csv
 
-`git clone git@github.com:gyab/french-government-speeches-to-json.git`
+`git clone git@github.com:gyab/french-government-statements-to-csv.git`
 
 ## Use it
 
