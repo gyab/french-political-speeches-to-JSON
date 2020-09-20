@@ -34,7 +34,7 @@ Structured data of a scraped speech:
 
 ## Use it
 
-The spider used by [Scrapy](https://github.com/scrapy/scrapy) to crawl and parse the website is located in `crawling/crawling/spiders`.
+The spider, used by [Scrapy](https://github.com/scrapy/scrapy) to crawl and parse the website, is located in `crawling/crawling/spiders`.
 
 `scrapy runspider crawling/crawling/spiders/speeches.py -o speeches.json`
 
