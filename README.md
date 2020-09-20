@@ -1,11 +1,11 @@
 # french-political-speeches-to-json
 
-Scrape all speeches of the French governement uploaded on https://www.vie-publique.fr/discours.
+Scrape all the speeches of the French government uploaded on https://www.vie-publique.fr/discours.
 
 - To scrape the website, [Scrapy](https://github.com/scrapy/scrapy) is used.
 - The URL of latest generated JSON file is https://raw.githubusercontent.com/gyab/french-political-speeches-to-json/master/speeches.json.
 
-Example of structured data of a scraped speech:
+Structured data of a scraped speech:
   ```
   {
     "title": "Déclaration des chefs d'État et de gouvernement de Chypre, de l'Espagne, de la France, de la Grèce, de l'Italie, de Malte et du Portugal à l'issue du 7e Sommet des pays du sud de l'Union européenne, le 10 septembre 2020.",
