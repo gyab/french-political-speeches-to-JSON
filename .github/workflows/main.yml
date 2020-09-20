@@ -21,13 +21,10 @@ jobs:
 
       -   name: Setup dependencies
           run: |
-            pip install git+https://github.com/gyab/french-political-speeches-to-json.git
+            pip install -r requirements.txt
       -   name: Run sync
           run: scrapy runspider crawling/crawling/spiders/speeches.py -o speeches.json
-          env:
-            ROAMRESEARCH_USER: ${{ secrets.ROAMRESEARCH_USER }}
-            ROAMRESEARCH_PASSWORD: ${{ secrets.ROAMRESEARCH_PASSWORD }}
-            ROAMRESEARCH_DATABASE: ${{ secrets.ROAMRESEARCH_DATABASE }}
+
 
       -   name: Commit changes
           uses: elstudio/actions-js-build/commit@v3

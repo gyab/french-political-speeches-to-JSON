@@ -2,11 +2,11 @@ from distutils.core import setup
 from pkg_resources import parse_requirements
 
 setup(
-    name='french-political-speeches-to-json',
-    packages=['french-political-speeches-to-json'],
+    name='french_political_speeches_to_json',
+    packages=['french_political_speeches_to_json'],
     version='0.1',
     license='MIT',
-    description='french-political-speeches-to-jsont',
+    description='french_political_speeches_to_json',
     author='Antoine',  # Type in your name
     author_email='',  # Type in your E-Mail
     url='https://github.com/gyab/french-political-speeches-to-json',
