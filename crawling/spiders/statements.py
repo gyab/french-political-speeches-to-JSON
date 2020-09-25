@@ -1,5 +1,5 @@
 import scrapy
-
+from datetime import datetime
 
 class ViePubliqueDiscours(scrapy.Spider):
     name = 'speeches'
@@ -7,11 +7,19 @@ class ViePubliqueDiscours(scrapy.Spider):
     start_urls = ['https://www.vie-publique.fr/discours']
 
     def parse(self, response):
-        speech_page_links = response.css('.teaserSimple--title a')
-        yield from response.follow_all(speech_page_links, self.parse_speech)
+        statements = {
+            'links': response.css('.teaserSimple--title a'),
+            'dates': response.css('time::attr(datetime)').getall()
+        }
+        statements_links = []
+        for i, statement_date in enumerate(statements['dates']):
+            if datetime.strptime(statement_date, "%Y-%m-%dT%H:%M:%SZ").date() == datetime.now().date():
+                statements_links.append(statements['links'][i])
+        yield from response.follow_all(statements_links, self.parse_speech)
 
-        '''pagination_links = response.css('li.pager__item a')
-        yield from response.follow_all(pagination_links, self.parse)'''
+        if datetime.strptime(response.css('time::attr(datetime)').getall()[-1], "%Y-%m-%dT%H:%M:%SZ").date() == datetime.now().date():
+            pagination_links = response.css('li.pager__item a')
+            yield from response.follow_all(pagination_links, self.parse)
 
     def parse_speech(self, response):
         yield {
