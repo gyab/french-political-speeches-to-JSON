@@ -27,19 +27,15 @@ Structured data of a scraped speech:
   }
   ```
 
-
-## Install french-government-statements-to-csv
-
-`git clone git@github.com:gyab/french-government-statements-to-csv.git`
-
 ## Use it
 
 The spider, used by [Scrapy](https://github.com/scrapy/scrapy) to crawl and parse the website, is located in `crawling/crawling/spiders`.
 
-`scrapy runspider crawling/crawling/spiders/speeches.py -o speeches.json`
+`scrapy runspider crawling/spiders/speeches.py -o statments.csv`
 
 ## Task list
 
-- [ ] Send a request by mail when a speech is not fully accessible (text missing for example)
-- [ ] Generate a RSS feed for each new speech
+- [ ] Send a request by mail when a statment is not fully accessible (text missing for example)
+- [ ] Generate a RSS feed for each new feed
 - [ ] Not generate each new JSON file from scratch, append each time instead
+- [ ] Publish the dataset as a Google Sheet

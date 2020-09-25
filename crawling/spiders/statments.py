@@ -10,8 +10,8 @@ class ViePubliqueDiscours(scrapy.Spider):
         speech_page_links = response.css('.teaserSimple--title a')
         yield from response.follow_all(speech_page_links, self.parse_speech)
 
-        # pagination_links = response.css('li.pager__item a')
-        # yield from response.follow_all(pagination_links, self.parse)
+        '''pagination_links = response.css('li.pager__item a')
+        yield from response.follow_all(pagination_links, self.parse)'''
 
     def parse_speech(self, response):
         yield {
