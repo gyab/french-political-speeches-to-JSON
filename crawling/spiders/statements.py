@@ -1,6 +1,7 @@
 import scrapy
 from datetime import datetime
 
+
 class ViePubliqueDiscours(scrapy.Spider):
     name = 'speeches'
 
@@ -15,7 +16,8 @@ class ViePubliqueDiscours(scrapy.Spider):
         for i, statement_date in enumerate(statements['dates']):
             if datetime.strptime(statement_date, "%Y-%m-%dT%H:%M:%SZ").date() == datetime.now().date():
                 statements_links.append(statements['links'][i])
-        yield from response.follow_all(statements_links, self.parse_speech)
+        if statements_links:
+            yield from response.follow_all(statements_links, self.parse_speech)
 
         if datetime.strptime(response.css('time::attr(datetime)').getall()[-1], "%Y-%m-%dT%H:%M:%SZ").date() == datetime.now().date():
             pagination_links = response.css('li.pager__item a')
