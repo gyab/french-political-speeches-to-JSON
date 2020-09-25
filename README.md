@@ -37,5 +37,5 @@ The spider, used by [Scrapy](https://github.com/scrapy/scrapy) to crawl and pars
 
 - [ ] Send a request by mail when a statement is not fully accessible (text missing for example)
 - [ ] Generate a RSS feed for each new feed
-- [ ] Not generate each new JSON file from scratch, append each time instead
+- [x] Not generate each new CSV file from scratch, append each time instead
 - [ ] Publish the dataset as a Google Sheet
