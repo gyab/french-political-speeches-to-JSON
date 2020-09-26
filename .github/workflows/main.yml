@@ -27,7 +27,7 @@ jobs:
           id: end_date
           run: echo "::set-output name=end_date::$(date -d "14 days ago" '+%Y-%m-%d')"
       -   name: Run sync
-          run: scrapy runspider crawling/spiders/statements.py -a start_date=${{ steps.date.outputs.start_date }} -a end_date=${{ steps.date.outputs.end_date }} -o statements.csv
+          run: scrapy runspider crawling/spiders/statements.py -a start_date=${{ steps.start_date.outputs.start_date }} -a end_date=${{ steps.end_date.outputs.end_date }} -o statements.csv
       -   name: Commit changes
           uses: elstudio/actions-js-build/commit@v3
           with:
