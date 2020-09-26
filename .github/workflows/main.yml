@@ -21,10 +21,10 @@ jobs:
       -   name: Setup dependencies
           run: pip install -r requirements.txt
       -   name: Get start date
-          id: date
+          id: start_date
           run: echo "::set-output name=start_date::$(date -d "7 days ago" '+%Y-%m-%d')"
       -   name: Get end date
-          id: date
+          id: end_date
           run: echo "::set-output name=end_date::$(date -d "14 days ago" '+%Y-%m-%d')"
       -   name: Run sync
           run: scrapy runspider crawling/spiders/statements.py -a start_date=${{ steps.date.outputs.start_date }} -a end_date=${{ steps.date.outputs.end_date }} -o statements.csv
