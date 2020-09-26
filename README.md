@@ -31,7 +31,7 @@ Structured data of a scraped statement:
 
 The spider, used by [Scrapy](https://github.com/scrapy/scrapy) to crawl and parse the website, is located in `crawling/crawling/spiders`.
 
-`scrapy runspider crawling/spiders/statements.py -o statements.json -a start_date=2020-09-12 -a end_date=2020-09-19`
+`scrapy runspider crawling/spiders/statements.py -o statements.csv -a start_date=2020-09-12 -a end_date=2020-09-19`
 
 ## Task list
 
