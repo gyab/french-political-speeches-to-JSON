@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    -   cron: "0 0 * * *"
+    -   cron: "0 0 * * 0"
 
 jobs:
   backup:
@@ -18,14 +18,13 @@ jobs:
           uses: actions/setup-python@v1
           with:
             python-version: 3.8
-
       -   name: Setup dependencies
-          run: |
-            pip install -r requirements.txt
+          run: pip install -r requirements.txt
+      -   name: Get current date
+          id: date
+          run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       -   name: Run sync
-          run: scrapy runspider crawling/spiders/statements.py -o statements.csv
-
-
+          run: scrapy runspider crawling/spiders/statements.py -a start_date=${{ steps.date.outputs.date }} -a end_date=${{ steps.date.outputs.date }} -o statements.csv
       -   name: Commit changes
           uses: elstudio/actions-js-build/commit@v3
           with:
